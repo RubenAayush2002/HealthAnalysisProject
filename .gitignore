@@ -6,3 +6,6 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 .DS_Store
+PROJECT_SUMMARY.md
+HOW_IT_WORKS.md
+CLAUDE.md
