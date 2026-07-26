@@ -1,0 +1,443 @@
+# Auto-generated from uv.lock via:
+#   uv export --format requirements.txt --no-dev --no-hashes --no-emit-project
+# Regenerate with the same command after any pyproject.toml/uv.lock change --
+# do not hand-edit package pins below.
+#
+# spaCy model wheel: Community Cloud only runs `pip install -r requirements.txt`,
+# it does not run `python -m spacy download` separately, so the model has to
+# be installable as a plain package via direct wheel URL. Version 3.8.0 matches
+# the pinned spacy==3.8.13 (model major.minor tracks spacy major.minor).
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+
+aiohappyeyeballs==2.7.1
+    # via aiohttp
+aiohttp==3.14.2
+    # via
+    #   langchain-community
+    #   langchain-tavily
+aiosignal==1.4.0
+    # via aiohttp
+altair==6.2.2
+    # via streamlit
+annotated-doc==0.0.4
+    # via typer
+annotated-types==0.7.0
+    # via pydantic
+anyio==4.14.2
+    # via
+    #   google-genai
+    #   httpx
+    #   langsmith
+    #   starlette
+    #   streamlit
+attrs==26.1.0
+    # via
+    #   aiohttp
+    #   jsonschema
+    #   referencing
+blinker==1.9.0
+    # via streamlit
+blis==1.3.3
+    # via thinc
+cachetools==7.1.4
+    # via streamlit
+catalogue==2.0.10
+    # via
+    #   spacy
+    #   srsly
+    #   thinc
+certifi==2026.6.17
+    # via
+    #   httpcore
+    #   httpx
+    #   requests
+cffi==2.1.0 ; platform_python_implementation != 'PyPy'
+    # via cryptography
+charset-normalizer==3.4.9
+    # via requests
+click==8.4.2
+    # via
+    #   presidio-analyzer
+    #   streamlit
+    #   uvicorn
+cloudpathlib==0.24.0
+    # via weasel
+colorama==0.4.6 ; sys_platform == 'win32'
+    # via
+    #   click
+    #   tqdm
+    #   typer
+    #   wasabi
+confection==1.3.3
+    # via
+    #   spacy
+    #   thinc
+    #   weasel
+cryptography==46.0.7
+    # via
+    #   google-auth
+    #   presidio-anonymizer
+cymem==2.0.13
+    # via
+    #   preshed
+    #   spacy
+    #   thinc
+distro==1.9.0
+    # via
+    #   google-genai
+    #   langsmith
+filelock==3.31.1
+    # via tldextract
+filetype==1.2.0
+    # via langchain-google-genai
+frozenlist==1.8.0
+    # via
+    #   aiohttp
+    #   aiosignal
+gitdb==4.0.12
+    # via gitpython
+gitpython==3.1.53
+    # via streamlit
+google-auth==2.55.2
+    # via google-genai
+google-genai==2.12.1
+    # via langchain-google-genai
+greenlet==3.5.3 ; platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64'
+    # via sqlalchemy
+h11==0.16.0
+    # via
+    #   httpcore
+    #   uvicorn
+httpcore==1.0.9
+    # via httpx
+httptools==0.8.0
+    # via streamlit
+httpx==0.28.1
+    # via
+    #   google-genai
+    #   langgraph-sdk
+    #   langsmith
+    #   weasel
+httpx-sse==0.4.3
+    # via langchain-community
+idna==3.18
+    # via
+    #   anyio
+    #   httpx
+    #   requests
+    #   tldextract
+    #   yarl
+itsdangerous==2.2.0
+    # via streamlit
+jinja2==3.1.6
+    # via
+    #   altair
+    #   pydeck
+    #   spacy
+jsonpatch==1.33
+    # via langchain-core
+jsonpointer==3.1.1
+    # via jsonpatch
+jsonschema==4.26.0
+    # via altair
+jsonschema-specifications==2025.9.1
+    # via jsonschema
+langchain==1.3.14
+    # via
+    #   health-report-analyser
+    #   langchain-tavily
+langchain-classic==1.0.8
+    # via langchain-community
+langchain-community==0.4.2
+    # via health-report-analyser
+langchain-core==1.4.9
+    # via
+    #   langchain
+    #   langchain-classic
+    #   langchain-community
+    #   langchain-google-genai
+    #   langchain-tavily
+    #   langchain-text-splitters
+    #   langgraph
+    #   langgraph-checkpoint
+    #   langgraph-prebuilt
+    #   langgraph-sdk
+langchain-google-genai==4.2.7
+    # via health-report-analyser
+langchain-protocol==0.0.18
+    # via
+    #   langchain-core
+    #   langgraph-sdk
+langchain-tavily==0.2.18
+    # via health-report-analyser
+langchain-text-splitters==1.1.2
+    # via langchain-classic
+langgraph==1.2.9
+    # via
+    #   health-report-analyser
+    #   langchain
+langgraph-checkpoint==4.1.1
+    # via
+    #   langgraph
+    #   langgraph-prebuilt
+langgraph-prebuilt==1.1.0
+    # via langgraph
+langgraph-sdk==0.4.2
+    # via langgraph
+langsmith==0.10.8
+    # via
+    #   langchain-classic
+    #   langchain-community
+    #   langchain-core
+markdown-it-py==4.2.0
+    # via rich
+markupsafe==3.0.3
+    # via jinja2
+mdurl==0.1.2
+    # via markdown-it-py
+multidict==6.7.1
+    # via
+    #   aiohttp
+    #   yarl
+murmurhash==1.0.15
+    # via
+    #   preshed
+    #   spacy
+    #   thinc
+narwhals==2.24.0
+    # via altair
+numpy==2.4.6
+    # via
+    #   blis
+    #   langchain-community
+    #   pandas
+    #   presidio-analyzer
+    #   pydeck
+    #   spacy
+    #   streamlit
+    #   thinc
+orjson==3.11.9
+    # via
+    #   langgraph-sdk
+    #   langsmith
+ormsgpack==1.12.2
+    # via langgraph-checkpoint
+packaging==26.2
+    # via
+    #   altair
+    #   langchain-core
+    #   langsmith
+    #   spacy
+    #   streamlit
+    #   thinc
+    #   weasel
+pandas==3.0.3
+    # via streamlit
+phonenumbers==9.0.34
+    # via presidio-analyzer
+pillow==12.3.0
+    # via streamlit
+preshed==3.0.13
+    # via
+    #   spacy
+    #   thinc
+presidio-analyzer==2.2.363
+    # via health-report-analyser
+presidio-anonymizer==2.2.363
+    # via health-report-analyser
+propcache==0.5.2
+    # via
+    #   aiohttp
+    #   yarl
+protobuf==7.35.1
+    # via streamlit
+pyarrow==24.0.0
+    # via streamlit
+pyasn1==0.6.4
+    # via pyasn1-modules
+pyasn1-modules==0.4.2
+    # via google-auth
+pycparser==3.0 ; implementation_name != 'PyPy' and platform_python_implementation != 'PyPy'
+    # via cffi
+pydantic==2.13.4
+    # via
+    #   google-genai
+    #   health-report-analyser
+    #   langchain
+    #   langchain-classic
+    #   langchain-core
+    #   langchain-google-genai
+    #   langgraph
+    #   langsmith
+    #   presidio-analyzer
+    #   pydantic-settings
+    #   spacy
+    #   thinc
+    #   weasel
+pydantic-core==2.46.4
+    # via pydantic
+pydantic-settings==2.14.2
+    # via langchain-community
+pydeck==0.9.3
+    # via streamlit
+pygments==2.20.0
+    # via rich
+pymupdf==1.28.0
+    # via health-report-analyser
+pypdf==6.14.2
+    # via health-report-analyser
+python-dateutil==2.9.0.post0
+    # via pandas
+python-dotenv==1.2.2
+    # via
+    #   health-report-analyser
+    #   pydantic-settings
+python-multipart==0.0.32
+    # via streamlit
+pyyaml==6.0.3
+    # via
+    #   langchain-classic
+    #   langchain-community
+    #   langchain-core
+    #   presidio-analyzer
+referencing==0.37.0
+    # via
+    #   jsonschema
+    #   jsonschema-specifications
+regex==2026.7.19
+    # via presidio-analyzer
+requests==2.34.2
+    # via
+    #   google-auth
+    #   google-genai
+    #   langchain-classic
+    #   langchain-community
+    #   langchain-tavily
+    #   langsmith
+    #   requests-file
+    #   requests-toolbelt
+    #   spacy
+    #   streamlit
+    #   tldextract
+requests-file==3.0.1
+    # via tldextract
+requests-toolbelt==1.0.0
+    # via langsmith
+rich==15.0.0
+    # via typer
+rpds-py==2026.6.3
+    # via
+    #   jsonschema
+    #   referencing
+setuptools==83.0.0
+    # via
+    #   spacy
+    #   thinc
+shellingham==1.5.4
+    # via typer
+six==1.17.0
+    # via python-dateutil
+smart-open==8.0.1
+    # via weasel
+smmap==5.0.3
+    # via gitdb
+sniffio==1.3.1
+    # via
+    #   google-genai
+    #   langsmith
+spacy==3.8.13
+    # via
+    #   health-report-analyser
+    #   presidio-analyzer
+spacy-legacy==3.0.12
+    # via spacy
+spacy-loggers==1.0.5
+    # via spacy
+sqlalchemy==2.0.51
+    # via
+    #   langchain-classic
+    #   langchain-community
+srsly==2.5.3
+    # via
+    #   spacy
+    #   thinc
+    #   weasel
+starlette==1.3.1
+    # via streamlit
+streamlit==1.59.2
+    # via health-report-analyser
+tenacity==9.1.4
+    # via
+    #   google-genai
+    #   health-report-analyser
+    #   langchain-community
+    #   langchain-core
+    #   streamlit
+thinc==8.3.13
+    # via spacy
+tldextract==5.3.1
+    # via presidio-analyzer
+toml==0.10.2
+    # via streamlit
+tqdm==4.69.0
+    # via spacy
+typer==0.27.0
+    # via
+    #   spacy
+    #   weasel
+typing-extensions==4.16.0
+    # via
+    #   aiohttp
+    #   aiosignal
+    #   altair
+    #   anyio
+    #   google-genai
+    #   langchain-core
+    #   langchain-protocol
+    #   langsmith
+    #   pydantic
+    #   pydantic-core
+    #   referencing
+    #   sqlalchemy
+    #   starlette
+    #   streamlit
+    #   typing-inspection
+typing-inspection==0.4.2
+    # via
+    #   pydantic
+    #   pydantic-settings
+tzdata==2026.3 ; sys_platform == 'emscripten' or sys_platform == 'win32'
+    # via pandas
+urllib3==2.7.0
+    # via requests
+uuid-utils==0.17.0
+    # via
+    #   langchain-core
+    #   langsmith
+uvicorn==0.51.0
+    # via streamlit
+wasabi==1.1.3
+    # via
+    #   spacy
+    #   thinc
+    #   weasel
+watchdog==6.0.0 ; sys_platform != 'darwin'
+    # via streamlit
+weasel==1.0.0
+    # via spacy
+websockets==15.0.1
+    # via
+    #   google-genai
+    #   langgraph-sdk
+    #   langsmith
+    #   streamlit
+wrapt==2.2.2
+    # via smart-open
+xxhash==3.8.1
+    # via
+    #   langgraph
+    #   langsmith
+yarl==1.24.5
+    # via aiohttp
+zstandard==0.25.0
+    # via langsmith
