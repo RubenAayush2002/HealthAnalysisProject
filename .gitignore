@@ -9,3 +9,4 @@ __pycache__/
 PROJECT_SUMMARY.md
 HOW_IT_WORKS.md
 CLAUDE.md
+.env.example
