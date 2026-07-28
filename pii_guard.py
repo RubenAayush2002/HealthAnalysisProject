@@ -47,6 +47,7 @@ from dataclasses import dataclass, field
 from functools import lru_cache
 
 import phonenumbers
+import spacy
 from presidio_analyzer import AnalyzerEngine, EntityRecognizer, Pattern, PatternRecognizer, RecognizerResult
 from presidio_analyzer.context_aware_enhancers import LemmaContextAwareEnhancer
 from presidio_analyzer.nlp_engine import NlpEngineProvider
@@ -58,9 +59,10 @@ from presidio_anonymizer.entities import OperatorConfig
 # en_core_web_sm model instead — smaller, faster to load, adequate accuracy
 # for this use case. Swap to en_core_web_lg here if you need higher name/
 # location recall and don't mind the extra size/latency.
+_SPACY_MODEL_NAME = "en_core_web_sm"
 _NLP_ENGINE_CONFIG = {
     "nlp_engine_name": "spacy",
-    "models": [{"lang_code": "en", "model_name": "en_core_web_sm"}],
+    "models": [{"lang_code": "en", "model_name": _SPACY_MODEL_NAME}],
 }
 
 
@@ -362,6 +364,24 @@ class PIIGuard:
 
 @lru_cache(maxsize=1)
 def _build_analyzer() -> AnalyzerEngine:
+    # Presidio's SpacyNlpEngine.load() silently calls spacy.cli.download() --
+    # effectively a `pip install` -- if the model isn't already present. That
+    # can't work on a read-only deployment filesystem (e.g. Streamlit
+    # Community Cloud), where it fails with a confusing PermissionError deep
+    # inside a dependency, well after the app has already started. The model
+    # MUST be a real build-time dependency (see pyproject.toml /
+    # requirements.txt) so this check always passes in a correctly built
+    # environment; if it doesn't, fail loudly and immediately here instead of
+    # letting Presidio attempt a doomed runtime install.
+    if not spacy.util.is_package(_SPACY_MODEL_NAME):
+        raise RuntimeError(
+            f"spaCy model '{_SPACY_MODEL_NAME}' is not installed. This is a "
+            "build-time dependency (see pyproject.toml's en-core-web-sm "
+            "entry / requirements.txt), not something installed at runtime -- "
+            "rebuild the environment via `uv sync` (or `pip install -r "
+            "requirements.txt`) rather than trying to download it now."
+        )
+
     nlp_engine = NlpEngineProvider(nlp_configuration=_NLP_ENGINE_CONFIG).create_engine()
     analyzer = AnalyzerEngine(nlp_engine=nlp_engine, context_aware_enhancer=_CONTEXT_ENHANCER)
 

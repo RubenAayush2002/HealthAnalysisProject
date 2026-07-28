@@ -3,12 +3,17 @@
 # Regenerate with the same command after any pyproject.toml/uv.lock change --
 # do not hand-edit package pins below.
 #
-# spaCy model wheel: Community Cloud only runs `pip install -r requirements.txt`,
-# it does not run `python -m spacy download` separately, so the model has to
-# be installable as a plain package via direct wheel URL. Version 3.8.0 matches
-# the pinned spacy==3.8.13 (model major.minor tracks spacy major.minor).
-en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
-
+# This file is kept for reference / manual (non-uv) installs only. Streamlit
+# Community Cloud auto-detects pyproject.toml + uv.lock in this repo and
+# deploys via `uv sync`, NOT via this file -- uv.lock is the actual source of
+# truth for what gets installed in production. Keep this in sync with it (via
+# the command above) so it does not drift and mislead a manual pip install.
+#
+# en-core-web-sm (the spaCy model) is a normal pyproject.toml dependency
+# (see [tool.uv.sources]), pinned to a direct wheel URL -- both uv sync and
+# `pip install -r requirements.txt` install it as part of the normal
+# dependency resolution below. There is no separate `spacy download` step,
+# and nothing in the app should ever attempt to install it at runtime.
 aiohappyeyeballs==2.7.1
     # via aiohttp
 aiohttp==3.14.2
@@ -86,6 +91,8 @@ distro==1.9.0
     # via
     #   google-genai
     #   langsmith
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+    # via health-report-analyser
 filelock==3.31.1
     # via tldextract
 filetype==1.2.0
